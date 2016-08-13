@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>父页面</title>
+	</head>
+	<body>
+	
+		<h1>我是父页面</h1>
+		
+		<iframe id="iframe" src="index.html" frameborder="1"></iframe>
+		
+		<button id="fBtn">点击</button>
+		
+		<script>
+		
+			var iframe = document.getElementById('iframe');
+			var fBtn = document.getElementById('fBtn');
+			fBtn.onclick = function(){
+				
+			var parent = iframe.contentWindow;
+			
+			var innerSon = parent.document.getElementsByTagName('h2')[0];
+			
+			innerSon.innerHTML = '我是一个子页面';
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

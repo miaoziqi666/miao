@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="one"></h1>
+
+    <script src="js/one.js"></script>
+    <script>
+
+                // 5! 5*4*3*2*1
+        function jc(num) {
+            if (num <= 1) {
+                return 1;
+            } else {
+                // return num * arguments.callee(num - 1);
+                return num * jc(num - 1);  // 和上面的 arguments.callee 相同
+                // return 5 * 4 * 3 * 2 * 1
+            }
+            /*var sum = 1;
+            for(var i=num; i>=1; i--) {
+                sum *= i;
+            }
+            return sum;*/
+        }
+        var r = jc(10);
+        console.log(r);
+    </script>
+</body>
+</html>

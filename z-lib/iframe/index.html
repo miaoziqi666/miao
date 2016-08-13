@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我是子页面</title>
+	</head>
+	<body>
+		<h2>我是子页面</h2>
+		
+		<button id="zBtn">点击</button>
+		
+		<script>
+			var son = document.getElementsByTagName('h2')[0];
+			
+			var fBtn = document.getElementById('zBtn');
+			fBtn.onclick = function(){
+				
+			var son = parent.window;
+			
+			var innerParent = son.document.getElementsByTagName('h1')[0];
+			
+			innerParent.innerHTML = '我是一个父页面';
+				
+			}
+		</script>
+	</body>
+</html>

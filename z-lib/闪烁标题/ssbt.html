@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>WBE开发大本营</title>
+	</head>
+	<body>
+		
+		
+		<script>
+	var title = document.title;
+	function flashTitle(){
+		setInterval(function(){
+			if(document.title == title){
+				document.title = "WBC";
+			}else{
+				document.title = title;
+			}
+//			return document.title == title ? document.title = "wbc" : document.title = "title";
+		},500)
+	}
+	flashTitle();
+		</script>
+	</body>
+</html>

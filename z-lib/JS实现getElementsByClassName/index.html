@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div1' class="red1 mt20">div1</div>
+    <div class="red">div2</div>
+    <div class="red">div3</div>
+    <div class="red1">div4</div>
+    <div class="red1">div5</div>
+    <div class="red">div6</div>
+
+    <span class="red">span1</span>
+    <span class="red1">span2</span>
+
+    <script src="../../wbc.js">
+    </script>
+    <script>
+
+    var div1 = $('div1');
+    var r= innerText(div1,'test inner text....');
+    // alert(r);
+    // var div1=$('div1');
+    //     div1.innerHTML='acb'
+        var divs = $cls('red');
+        // len= divs&&divs.length||0;
+        // len= divs&&divs.length||0;
+
+        for (var i = 0; i < divs.length; i++) {
+                divs[i].style.backgroundColor = "red";
+            };
+            var a=[1],b=[2];
+            console.log(a.push(b));
+    </script>
+</body>
+</html>

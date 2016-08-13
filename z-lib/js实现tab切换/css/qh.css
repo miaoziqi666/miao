@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.tab {
+    width: 500px;
+    height: 300px;
+    border:1px solid red;
+}
+
+.tab .tab-header:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tab .tab-header li{
+    float: left;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: #CCC;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.tab .tab-body {
+    overflow: hidden;
+    width: 500px;
+    height: 265px;
+}
+
+.tab .tab-body > div {
+    height: 265px;
+    width: 500px;
+}
+
+.tab .tab-header li.active {
+    background-color: blue;
+    color: #fff;
+    font-weight: bold;
+}
