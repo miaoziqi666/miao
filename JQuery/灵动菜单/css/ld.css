@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wp {
+    width: 1003px;
+    margin: 0 auto;
+}
+
+.top-menu {
+    width: 1003px;
+    height: 400px;
+    background: red;
+}
+
+.lingdong {
+    width: 500px;
+    margin: 0 auto;
+    height: 100px;
+    background: green;
+}
+
+.lingdong.fixed{
+    position: fixed;
+    top: 0;
+    margin-left: -250px;
+    left: 50%;
+}
+
+.bottom-sm {
+    width: 50px;
+    height: 50px;
+    background: pink;
+    position: fixed;
+    bottom: 1px;
+    right: 10px;
+    display: none;
+}
+
+.bottom {
+    width: 1003px;
+    height: 1000px;
+    background-color: blue;
+}
+
+.bottom.fix {
+    margin-top: 100px;
+}

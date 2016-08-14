@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../lib/reset.css"> -->
+    <style>
+        .sideMenu {
+            width: 50px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            right: -50px;
+            top: 50%;
+            margin-top: -50px;
+        }
+        .sideMenu .trigger {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            position: absolute;
+            top: 50%;
+            margin-top: -10px;
+            left: -20px;
+            cursor: pointer;
+        }
+
+        .r0 {
+            
+        }
+    </style>
+
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+                var $sideMenu = $('.sideMenu');
+            $('.trigger').on('mouseenter', function() { // click
+                var left = 0;
+                // console.log($sideMenu.css('right'));
+                // if ($sideMenu.css('right') == '0px') {
+                //     left = -50;
+                // }
+                // $sideMenu.animate({right: left}, 500);
+                
+                    $sideMenu.animate({right: 0}, 500);
+
+
+                // if ($sideMenu.hasClass('r0')) {
+                //     $sideMenu.animate({right: -50}, 500).removeClass('r0');
+                // } else {
+                //     $sideMenu.animate({right: 0}, 500).addClass('r0');
+                // }
+            });
+            $('.trigger').on('mouseleave', function() {
+                $sideMenu.animate({right: -50}, 500);
+
+            });
+        });
+    </script>
+</head>
+<body>
+    
+    <div class="sideMenu">
+        <div class="trigger"></div>
+    </div>
+
+</body>
+</html>

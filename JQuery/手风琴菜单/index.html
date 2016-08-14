@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+
+        ul ,li {
+            list-style: none;
+        }
+        
+        body {
+            background-color: yellow;
+        }
+        .shoufq {
+            width: 300px;
+            background: #fff;
+            margin: 50px auto;
+        }
+        .shoufq ul {
+            display: none;
+        } 
+        .shoufq ul li{
+            height: 35px;
+            line-height: 35px;
+            background-color: #999;
+        }
+        .shoufq ul li:hover{
+            height: 35px;
+            line-height: 35px;
+            background-color: red;
+        }
+
+        .shoufq .titile {
+            background-color: green;
+            color: #fff;
+            margin-bottom: 1px;
+            text-indent: 10px;
+        }
+        .shoufq .titile p{
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+        .red {
+            color: red;
+        }
+
+
+    </style>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            var $titile = $ ('.shoufq div.titile');
+            // console.log($titile)
+              $titile.on('click',function(){
+                var $this = $(this);
+                $this
+                    .find('p').addClass('red')
+                    .end()
+                    .find('ul').slideToggle()
+                    .end()
+                    .siblings()
+                    .find('p.red').removeClass('red')
+                    .end()
+                    .find('ul:visible').slideUp();
+              });
+        })       
+    </script>
+</head>
+<body>
+    <div class="shoufq">
+        <div class="titile">
+            <p>CSS课程</p>
+            <ul>
+                <li>课程11</li>
+                <li>课程2</li>
+                <li>课程3</li>
+                <li>课程4</li>
+                <li>课程5</li>
+            </ul>
+        </div>
+        <div class="titile">
+            <p>js课程</p>
+            <ul>
+                <li>课程12</li>
+                <li>课程2</li>
+                <li>课程3</li>
+                <li>课程4</li>
+                <li>课程5</li>
+            </ul>
+        </div>
+        <div class="titile">
+            <p>html5课程</p>
+            <ul>
+                <li>课程13</li>
+                <li>课程2</li>
+                <li>课程3</li>
+                <li>课程4</li>
+                <li>课程5</li>
+            </ul>
+        </div>
+        <div class="titile">
+            <p>css3课程</p>
+            <ul>
+                <li>课程14</li>
+                <li>课程2</li>
+                <li>课程3</li>
+                <li>课程4</li>
+                <li>课程5</li>
+            </ul>
+        </div>
+        <div class="titile">
+            <p>jQuery课程</p>
+            <ul>
+                <li>课程15</li>
+                <li>课程2</li>
+                <li>课程3</li>
+                <li>课程4</li>
+                <li>课程5</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出图片轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul ,li {
+            list-style-type: none;
+        }
+
+        .slides {
+            width: 520px;
+            height: 280px;
+            position: absolute;
+            margin-left: -260px;
+            margin-top: 100px;
+            left: 50%;
+        }
+
+        .slides .img-slider {
+            height: 280px;
+        }
+
+        .slides .img-slider li {
+            position: absolute;
+            z-index: 0;
+/*            display: none;
+            overflow:hidden;*/
+        }
+        
+        .slides .img-slider li.cur {
+            z-index: 1;
+        }
+
+        .slides .indicator {
+            width: 519px;
+            height: 50px;
+            border: 1px solid rgba(0, 0, 0, 0.32);
+            border-right: none;
+        }
+
+        
+
+        .slides .indicator li {
+            box-sizing:border-box;
+            width: 20%;
+            height: 50px;
+            background-color:#ccc ;
+            float: left;
+            border-right: 1px solid rgba(0, 0, 0, 0.24);
+        }
+
+        .slides .indicator li.red {
+            background-color: red;
+        } 
+
+        .slides .slider > a {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+        .slides .slider .next {
+            left: auto;
+            right: 0;
+        }
+
+        a.next, a.prev {
+            z-index: 999;
+        }
+
+    </style>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+                var fadeTransition = function(section) {
+                    var $section = $(section),
+                        $imgSliderLi = $section.find('.img-slider > li'),
+                        $indicator = $section.find('.indicator > li'),
+                        timer;
+                    $imgSliderLi.each(function(i) {
+                        $(this).attr('index', i);
+                    });
+
+                $indicator.on('click',function() {
+                    var $this = $(this),
+                        currIndex = $this.index(),
+                        oldIndex = $this.siblings('.cur').index();
+                    console.log($this.index);
+                    // $this.css("backgroundColor","red").siblings().css("backgroundColor","#ccc");
+                    $this.addClass('cur red').siblings('.cur.red').removeClass('cur red');
+                    $imgSliderLi.eq(oldIndex).before($imgSliderLi.eq(currIndex));
+                    $section.find('.img-slider > li').each(function(i) {
+                        $(this).css('z-index', $imgSliderLi.length - i - 1);
+                    });
+                    $imgSliderLi.eq(oldIndex).show().fadeOut();
+                    $section.find('.img-slider').find('li[index='+currIndex+']').hide().fadeIn();
+                })
+
+                $section.find('a.next').on('click', function() {
+                    var $this = $(this);
+                    var oldIndex = $indicator.filter('.cur').index();
+                    oldIndex++;
+                    if (oldIndex == $indicator.length) {
+                        oldIndex = 0;
+                    }
+                    console.log(oldIndex);
+                    $indicator.eq(oldIndex).trigger('click');
+                });
+                $section.find('a.prev').on('click', function() {
+                var $this = $(this);
+                var oldIndex = $indicator.filter('.cur').index();
+                oldIndex--;
+                if (oldIndex == $indicator.length) {
+                    oldIndex = 0;
+                }
+                console.log(oldIndex);
+                $indicator.eq(oldIndex).trigger('click');
+            });
+                timer = setInterval(function() {
+                    $section.find('a.next').trigger('click');
+                }, 2000);
+
+                $section
+                .on('mouseover',function(){
+                    clearInterval(timer);
+                })
+                .on('mouseout',function(){
+                    timer = setInterval(function() {
+                        $section.find('a.next').trigger('click');
+                    }, 2000);
+                });
+            }
+            fadeTransition('.slides');
+        })
+// $(document).ready(function() {
+//         var fadeTransition = function(selector) {
+//             var $target = $(selector),
+//                 $slideLi = $target.find('.slide-li > li'),
+//                 $sliderPic = $target.find('.slide-pic > li'),
+//                 timer;
+//             $sliderPic.each(function(i) {
+//                 $(this).attr('index', i);
+//             });
+//             $slideLi.on('click', function() {
+//                 var $this = $(this),
+//                     currIndex = $this.index(),
+//                     oldIndex = $this.siblings('.cur').index();
+//                 $this.addClass('cur').siblings('.cur').removeClass('cur');
+//                 $sliderPic.eq(oldIndex).before($sliderPic.eq(currIndex));
+//                 $target.find('.slide-pic > li').each(function(i) {
+//                     $(this).css('z-index', $sliderPic.length - i - 1);
+//                 });
+//                 $sliderPic.eq(oldIndex).show().fadeOut();
+//                 $target.find('.slide-pic').find('li[index='+currIndex+']').hide().fadeIn();
+//                 // console.log($target.find('.slide-pic').find('li[index='+currIndex+']'));
+//                 // console.log('currIndex: ' + currIndex);
+//                 // console.log('oldIndex: ' + oldIndex);
+//             });
+//             $target.find('a.next, a.prev').on('click', function() {
+//                 var $this = $(this);
+//                 var oldIndex = $slideLi.filter('.cur').index();
+//                 oldIndex++;
+//                 if (oldIndex == $slideLi.length) {
+//                     oldIndex = 0;
+//                 }
+//                 console.log(oldIndex);
+//                 $slideLi.eq(oldIndex).trigger('click');
+//             });
+//             timer = setInterval(function() {
+//                 $target.find('a.next').trigger('click');
+//             }, 2000);
+//             // TODO
+//             $target
+//                 .on('mouseover',function(){
+//                     clearInterval(timer);
+//                 })
+//                 // .on('mouseout',function(){
+//                 //     run();
+//                 // })
+//         };
+//         fadeTransition('.slides');
+//     });
+    </script>
+
+
+</head>
+<body>
+    
+    <div class="slides">
+        <ul class="img-slider">
+            <li class="cur"><a href="javascript:void(0)"><img src="img/1.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="img/2.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="img/3.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="img/4.jpg" alt=""></a></li>
+            <li><a href="javascript:void(0)"><img src="img/5.jpg" alt=""></a></li>
+        </ul>
+        <ul class="indicator">
+            <li class="cur red"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="slider">
+            <a class="prev" href="javascript:void(0)" target="_blank"></a>
+            <a class="next" href="javascript:void(0)"></a>
+        </div>
+    </div>
+
+</body>
+</html>

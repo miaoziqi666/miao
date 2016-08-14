@@ -1,0 +1,38 @@
+*　{
+    margin: 0 ;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.left {
+    width: 50px;
+    height: 400px;
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    margin-top: -250px;
+    background: red;
+}
+
+.one {
+    width: 50px;
+    height: 30px;
+    background-color: blue;
+}
+
+.one .zx{
+    width: 40px;
+    height: 70px;
+    background-color: yellow;
+    position: relative;
+    right: 40px;
+}
+
+.two {
+    width: 50px;
+    height: 30px;
+    background-color: green;
+}

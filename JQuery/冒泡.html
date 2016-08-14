@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>滑动停靠菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .yc {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top:400px;
+            background-color: blue;
+            left:-100px;
+        }
+
+        .yc .xs {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            top:50%;
+            right: -20px;
+            margin-top:-10px;
+        }
+      /*   .l0 {
+          left:0px;
+      } */
+
+      div.red {
+        background-color: red;
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="yc">
+        <div class="xs"></div>
+    </div>
+
+<div onclick="alert(1);">div1
+        <div onclick="alert(2);" >div2
+            <div id="stop" class="red">div3</div>
+            <div onclick="alert(4)">div4</div>
+        </div>
+    </div>
+
+<script src="json/js/jquery.js"></script>
+<script>
+    function resule(){
+        var $yc = $('.yc');
+        $('.xs').on('mouseover',function(){
+            
+
+          /*  if($yc.hasClass('l0')){
+                $yc.animate({left:-100},500).removeClass('l0');
+            } else {
+                $yc.animate({left:0},500).addClass('l0');
+            }*/
+
+            // if($yc.css('left') == '0px') {
+            //     $yc.animate({left:-100}, 500);
+            // }else {
+            //     $yc.animate({left:0}, 500);
+            // }
+            
+                $yc.animate({left:0}, 500);
+            
+        });
+
+        $('.xs').on('mouseout',function(){
+            if($yc.css('left') == '0px') {
+                $yc.animate({left:-100}, 500);
+            };
+        })
+    };
+    resule();
+</script> 
+</body>
+</html>

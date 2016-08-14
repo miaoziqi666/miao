@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li {
+    list-style: none;
+}
+
+div {
+    width: 640px;
+    height: 35px;
+    border:1px solid #38f;
+    margin-top: 150px;
+    margin-left: -320px;
+    position: absolute;
+    left: 50%;
+}
+
+input {
+    width: 540px;
+    height: 35px;
+    text-indent: 15px;
+    border: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+}
+
+button {
+    width: 100px;
+    height: 35px;
+    float: left;
+    background: #38f;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+ul {
+    width: 540px;
+    margin-top: 35px;
+    border: 1px solid #ccc;
+    height: auto;
+    margin-left: -1px;
+}
+
+ul li{
+    width:100%;
+    height: 25px;
+    line-height: 25px;
+    text-indent: 16px;
+    font-size: 14px;
+}
+
+ul li:hover,ul li.hover{
+    background: #ccc;
+}
